@@ -34,16 +34,21 @@ const sally = new Person({
 })
 
 // Test Console Logs
-/*
+// /*
+console.log("__________________________LAMBDA CLASS LOGS BEGIN____________________________")
+// Tom
+console.log("--------------THESE ARE MY PERSON LOGS FOR Tom--------------");
 console.log(tom);
 console.log(tom.speak());
+
+// Sally
+console.log("--------------THESE ARE MY PERSON LOGS FOR Sally--------------");
 console.log(sally);
 console.log(sally.speak());
-*/
+// */
 
 
 // ***************Instructor Constructor class; child to Person******************
-// /*
 class Instructor extends Person{
     constructor(iAttributes){
         super(iAttributes);
@@ -87,19 +92,22 @@ const instructorDave = new Instructor({
 })
 
 // Test Console Logs
-/*
+// /*
+// Milang
+console.log("--------------THESE ARE MY INSTRUCTOR LOGS FOR MILANG--------------");
 console.log(instructorMilang);
 console.log(instructorMilang.speak());
 console.log(instructorMilang.demo("Science"));
 console.log(instructorMilang.grade(tom.name, "Math"));
+
+// Dave
+console.log("--------------THESE ARE MY INSTRUCTOR LOGS FOR DAVE--------------");
 console.log(instructorDave);
 console.log(instructorDave.speak());
 console.log(instructorDave.demo("Robotics"));
 console.log(instructorDave.grade(sally.name, "Computer Science"));
-*/
-
-
 // */
+
 
 
 
@@ -162,12 +170,14 @@ const studentLiz = new Student({
 // Test Console Logs
 // /*
 // RON
+console.log("--------------THESE ARE MY STUDENT LOGS FOR RON--------------")
 console.log(studentRon);
 console.log(studentRon.speak());
 console.log(studentRon.listsSubjects(...studentRon.favSubjects));
 console.log(studentRon.PRAssignment(studentRon.favSubjects[1]));
 console.log(studentRon.sprintChallenge(studentRon.favSubjects[2]));
 // Liz
+console.log("--------------THESE ARE MY STUDENT LOGS FOR LIZ--------------")
 console.log(studentLiz);
 console.log(studentLiz.speak());
 console.log(studentLiz.listsSubjects(...studentLiz.favSubjects));
@@ -175,9 +185,75 @@ console.log(studentLiz.PRAssignment(studentLiz.favSubjects[0]));
 console.log(studentLiz.sprintChallenge(studentLiz.favSubjects[2]));
 // */
 
+
+
+
+// ***************Project Manager Constructor class******************
+
+class ProjectManagers extends Instructor{
+    constructor(pmAttributes){
+        super(pmAttributes);
+        this.gradClassName = pmAttributes.gradClassName;
+        this.favInstructor = pmAttributes.favInstructor;
+    }
+    // Methods
+    // standup method
+        // standUp a method that takes in a slack channel and logs `{name} announces to {channel}, @channel standy times!​​​​​
+    standup(slackchan){
+        return `Project Manager ${this.name} announces to the BEST cohort ${slackchan}, @channel standy times!`
+    }
+    // debugsCode method
+        // debugsCode a method that takes in a student object and a subject and logs out {name} debugs {student.name}'s code on {subject}
+    debugsCode(student, subject = " "){
+        return `PM ${this.name} debugs ${student.name}'s ${subject} code.`
+    }
+}
+
+// ------------ New Project Manager Objects -----------------
+const pmJosh = new ProjectManagers({
+    name: "Josh",
+    age: 40,
+    location: "Moab, Utah",
+    gender: "M",
+    specialty: "Coding Instruction",
+    favLanguage: "C#",
+    catchPhrase: "Movin' on Up!",
+    gradClassName: "CS1",
+    favInstructor: "Milang"
+})
+const pmJulie = new ProjectManagers({
+    name: "Julie",
+    age: 30,
+    location: "Wyoming",
+    gender: "F",
+    specialty: "Teaching Ruby",
+    favLanguage: "Ruby",
+    catchPhrase: "California hello to EVERYBODY!",
+    gradClassName: "CS2",
+    favInstructor: "Dave"
+})
+
+
+
+// Test Console Logs
+// /*
+// JOSH OBJECT TEST LOGS
+console.log("--------------THESE ARE MY Project Manager LOGS FOR Josh--------------")
+console.log(pmJosh);
+console.log(pmJosh.speak());
+console.log(pmJosh.demo("C#"));
+console.log(pmJosh.grade(tom.name, "Social Studies"));
+console.log(pmJosh.standup("WEB19"));
+console.log(pmJosh.debugsCode(studentLiz, "JavaScript"));
+// JULIE OBJECT TEST LOGS
+console.log("--------------THESE ARE MY Project Manager LOGS FOR Julie--------------")
+console.log(pmJulie);
+console.log(pmJulie.speak());
+console.log(pmJulie.demo("Ruby"));
+console.log(pmJulie.grade(tom.name, "Binary Code 101"));
+console.log(pmJulie.standup("WEB19"));
+console.log(pmJulie.debugsCode(studentRon, "CSS"));
 // */
-
-
 
 
 

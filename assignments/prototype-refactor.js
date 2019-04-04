@@ -16,13 +16,19 @@ Prototype Refactor
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
 
+
+
+
+
+
+
 // ********************GameObject Constructor REFACTORED to class*********************
 class GameObject{
     constructor(gLevelAtt){
-        this.createdAt = gLevelAtt.createdAt,
-        this.name = gLevelAtt.name,
-        this.dimensions = gLevelAtt.dimensions,
-        console.log(this)
+        this.createdAt = gLevelAtt.createdAt;
+        this.name = gLevelAtt.name;
+        this.dimensions = gLevelAtt.dimensions;
+        // console.log(this);
     }
     // Methods
     destroy(){
@@ -191,6 +197,11 @@ class Humanoid extends CharacterStats{
       language: 'Elvish',
     });
   
+
+// Test Console Logs
+// /*
+// ----------------------PROTOTYPE REFACTOR LOGS----------------------------
+    console.log("----------------------PROTOTYPE REFACTOR LOGS START----------------------------");
     console.log(mage.createdAt); // Today's date
     console.log(archer.dimensions); // { length: 1, width: 2, height: 4 }
     console.log(swordsman.healthPoints); // 15
@@ -201,6 +212,10 @@ class Humanoid extends CharacterStats{
     console.log(archer.greet()); // Lilith offers a greeting in Elvish.
     console.log(mage.takeDamage()); // Bruce took damage.
     console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
+    console.log("-_-*-_-_-*-_-_-*-_-_-*-_--_-*-_-PROTOTYPE REFACTOR LOGS END-_-*-_-_-*-_-_-*-_-_-*-_--_-*-_-");
+// */
+
+
   // */
   
     // Stretch task: 
