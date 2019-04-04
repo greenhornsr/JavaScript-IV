@@ -31,7 +31,7 @@ class GameObject{
 }
 
 
-// -----------Original GameObject-----------------
+// -----------Original GameObject Constructor-----------------
 
 /*
 
@@ -56,23 +56,35 @@ function GameObject(gLevelAtt){
   */
 
 // ********************CharacterStats REFACTORED to class*********************
+class CharacterStats extends GameObject{
+    constructor(charStats){
+        super(charStats);
+        this.healthPoints = charStats.healthPoints;
+    }
+    // Methods
+    takeDamage(){
+        return `${this.name} took damage.`
+    }
+}
 
 
+  // -----------Original CharacterStats Constructor-----------------
 
-  // -----------Original CharacterStats-----------------
+/*
+
   function CharacterStats(charStats){
     GameObject.call(this, charStats),
     // GameObject.bind(this, charStats),
     this.healthPoints = charStats.healthPoints
   }
-  
+
   CharacterStats.prototype = Object.create(GameObject.prototype);
-  
+
   CharacterStats.prototype.takeDamage = function(){
     return `${this.name} took damage.`
   };
-  
-  
+
+*/
   
   /*
     === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -83,7 +95,26 @@ function GameObject(gLevelAtt){
     * should inherit destroy() from GameObject through CharacterStats
     * should inherit takeDamage() from CharacterStats
   */
-   
+
+
+// ********************Humanoid REFACTORED to class*********************
+class Humanoid extends CharacterStats{
+    constructor(mortalAtt){
+        super(mortalAtt);
+        this.team = mortalAtt.team;
+        this.weapons = mortalAtt.weapons;
+        this.language = mortalAtt.language;
+    }
+    // Methods
+    greet(){
+        return `${this.name} offers a greeting in ${this.language}.`
+    }
+}
+
+
+
+    // -----------Original Humanoid Constructor-----------------
+
   function Humanoid(mortalAtt){
     CharacterStats.call(this, mortalAtt),
     // CharacterStats.bind(this, mortalAtt),
