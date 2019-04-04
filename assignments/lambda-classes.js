@@ -151,7 +151,16 @@ class Student extends Person{
             // This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
             // If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score. 
     graduationCheck(student){
-
+        for(let i=0; i<5; i++){
+            let myGrade = student.grade;
+            if(myGrade> 70){
+                return `${student.name} has a ${myGrade}!  CONGRATULATIONS ${student.name} has satisfied the minimal requirements to GRADUATE!`
+            }
+            else{
+                instructorMilang.randGradeAdjust(student);
+            }
+            return `Sorry ${student.name} did not graduate.  His grade is ${myGrade}.  Better luck next time ${student.name}!`
+        }
     }
 }
 
@@ -294,4 +303,8 @@ console.log(pmJosh.randGradeAdjust(studentLiz));
 console.log(pmJulie.randGradeAdjust(studentRon));
 
 
+// STRETCH GRADUATION CHECK
+console.log("--------------GRADUATION CHECK FOR RON--------------")
+console.log(studentRon.graduationCheck(studentRon));
+console.log(studentLiz.graduationCheck(studentLiz));
 
