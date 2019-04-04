@@ -65,7 +65,7 @@ class Instructor extends Person{
     // Grade method
         // grade receives a student object and a subject string as arguments and logs out '{student.name} receives a perfect score on {subject}'
     grade(student, subject = " "){
-        return `${student} receives a perfect score on ${subject}!`
+        return `${student.name} receives a perfect score on ${subject}!`
     }
     randGradeAdjust(student){
         let curGrade = student.grade;
@@ -105,14 +105,14 @@ console.log("--------------THESE ARE MY INSTRUCTOR LOGS FOR MILANG--------------
 console.log(instructorMilang);
 console.log(instructorMilang.speak());
 console.log(instructorMilang.demo("Science"));
-console.log(instructorMilang.grade(tom.name, "Math"));
+console.log(instructorMilang.grade(tom, "Math"));
 
 // Dave
 console.log("--------------THESE ARE MY INSTRUCTOR LOGS FOR DAVE--------------");
 console.log(instructorDave);
 console.log(instructorDave.speak());
 console.log(instructorDave.demo("Robotics"));
-console.log(instructorDave.grade(sally.name, "Computer Science"));
+console.log(instructorDave.grade(sally, "Computer Science"));
 
 // */
 
@@ -145,6 +145,13 @@ class Student extends Person{
     // sprintChallenge similar to PRAssignment but logs out student.name has begun sprint challenge on {subject}
     sprintChallenge(subject = " "){
         return `${this.name} has begun sprint challenge on ${subject}.`
+    }
+    // STRETCH GRADUATION CHECK
+        //Add a graduate method to a student.
+            // This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+            // If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score. 
+    graduationCheck(student){
+
     }
 }
 
