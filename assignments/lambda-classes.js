@@ -67,6 +67,13 @@ class Instructor extends Person{
     grade(student, subject = " "){
         return `${student} receives a perfect score on ${subject}!`
     }
+    randGradeAdjust(student){
+        let curGrade = student.grade;
+        let randomGrade = Math.floor((Math.random()* 100) + 1);
+        let avgGrade = Math.floor((student.grade + randomGrade) / 2);
+        let newGrade = student.grade = avgGrade;
+        return `${student.name} currently has a ${curGrade} and they received a ${randomGrade} on the Sprint Challenge giving them an average new grade of ${newGrade}!`
+    }
 }
 
 
@@ -106,6 +113,7 @@ console.log(instructorDave);
 console.log(instructorDave.speak());
 console.log(instructorDave.demo("Robotics"));
 console.log(instructorDave.grade(sally.name, "Computer Science"));
+
 // */
 
 
@@ -118,7 +126,9 @@ class Student extends Person{
         super(sAttributes);
         this. previousBackground = sAttributes.previousBackground;
         this.className = sAttributes.className;
-        this.favSubjects = sAttributes.favSubjects
+        this.favSubjects = sAttributes.favSubjects;
+        // Stretch Property
+        this.grade = sAttributes.grade;
     }
     // Methods
     // List Subjects method
@@ -131,8 +141,8 @@ class Student extends Person{
     PRAssignment(subject){
         return `${this.name} has submitted a PR for ${subject}.`
     }
-    // SprintChallenge method
-        // sprintChallenge similar to PRAssignment but logs out student.name has begun sprint challenge on {subject}
+        // SprintChallenge method
+    // sprintChallenge similar to PRAssignment but logs out student.name has begun sprint challenge on {subject}
     sprintChallenge(subject = " "){
         return `${this.name} has begun sprint challenge on ${subject}.`
     }
@@ -150,7 +160,9 @@ const studentRon = new Student({
         'Html', 
         'CSS',
         'JavaScript'
-    ]
+    ],
+    // Stretch Property Grade
+    grade: 80
 })
 
 const studentLiz = new Student({
@@ -164,7 +176,9 @@ const studentLiz = new Student({
         'Psychology', 
         'Business Management',
         'Swift'
-    ]
+    ],
+    // Stretch Property Grade
+    grade: 95
 })
 
 // Test Console Logs
@@ -245,6 +259,7 @@ console.log(pmJosh.demo("C#"));
 console.log(pmJosh.grade(tom.name, "Social Studies"));
 console.log(pmJosh.standup("WEB19"));
 console.log(pmJosh.debugsCode(studentLiz, "JavaScript"));
+
 // JULIE OBJECT TEST LOGS
 console.log("--------------THESE ARE MY Project Manager LOGS FOR Julie--------------")
 console.log(pmJulie);
@@ -254,6 +269,22 @@ console.log(pmJulie.grade(tom.name, "Binary Code 101"));
 console.log(pmJulie.standup("WEB19"));
 console.log(pmJulie.debugsCode(studentRon, "CSS"));
 // */
+
+
+// STRETCH CONSOLE LOG TESTS
+// INSTRUCTOR TESTS
+console.log("--------------THIS IS MY INSTRUCTOR STRETCH LOGS (DID AVERAGE GRADE WHERE ONLY 2 GRADES ARE CONSIDERED)--------------")
+// MILANG STRETCH TEST LOG
+console.log(instructorMilang.randGradeAdjust(studentLiz));
+// DAVE STRETCH TEST LOG
+console.log(instructorDave.randGradeAdjust(studentRon));
+
+// PM TESTS
+console.log("--------------THIS IS MY PM STRETCH LOGS (DID AVERAGE GRADE WHERE ONLY 2 GRADES ARE CONSIDERED)--------------")
+// JOSH STRETCH TEST LOG
+console.log(pmJosh.randGradeAdjust(studentLiz));
+// JULIE STRETCH TEST LOG
+console.log(pmJulie.randGradeAdjust(studentRon));
 
 
 
