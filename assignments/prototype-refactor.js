@@ -16,7 +16,7 @@ Prototype Refactor
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
 
-// ********************GameObject REFACTORED to class*********************
+// ********************GameObject Constructor REFACTORED to class*********************
 class GameObject{
     constructor(gLevelAtt){
         this.createdAt = gLevelAtt.createdAt,
@@ -55,7 +55,7 @@ function GameObject(gLevelAtt){
     * should inherit destroy() from GameObject's prototype
   */
 
-// ********************CharacterStats REFACTORED to class*********************
+// ********************CharacterStats Constructor REFACTORED to class*********************
 class CharacterStats extends GameObject{
     constructor(charStats){
         super(charStats);
@@ -97,7 +97,7 @@ class CharacterStats extends GameObject{
   */
 
 
-// ********************Humanoid REFACTORED to class*********************
+// ********************Humanoid Constructor REFACTORED to class*********************
 class Humanoid extends CharacterStats{
     constructor(mortalAtt){
         super(mortalAtt);
@@ -115,6 +115,8 @@ class Humanoid extends CharacterStats{
 
     // -----------Original Humanoid Constructor-----------------
 
+/*
+
   function Humanoid(mortalAtt){
     CharacterStats.call(this, mortalAtt),
     // CharacterStats.bind(this, mortalAtt),
@@ -128,6 +130,7 @@ class Humanoid extends CharacterStats{
     return `${this.name} offers a greeting in ${this.language}.`
   };
   
+*/
   
   /*
     * Inheritance chain: GameObject -> CharacterStats -> Humanoid
@@ -202,11 +205,32 @@ class Humanoid extends CharacterStats{
   
     // Stretch task: 
     // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
+    
+
+// ********************Hero Constructor REFACTORED to class*********************
+class Hero extends Humanoid{
+    constructor(heroAtt){
+        super(heroAtt);
+        this.defAttack = heroAtt.defAttack;
+        this.defAttackDmg = heroAtt.defAttackDmg
+    }
+    // Methods
+
+}
+
+
+// -----------Original Hero Constructor-----------------
+
+/*
+
     function Hero(heroAtt){
       Humanoid.call(this, heroAtt);
       this.defAttack = heroAtt.defAttack;
       this.defAttackDmg = heroAtt.defAttackDmg
     }
+
+*/
+
     const guardian = new Hero({
       createdAt: new Date(),
       dimensions: {
@@ -226,12 +250,33 @@ class Humanoid extends CharacterStats{
       defAttackDmg: 7,
     });
   
+
+
+    // ********************Villain Constructor REFACTORED to class*********************
+class Villain extends Humanoid{
+    constructor(villAtt){
+        super(villAtt);
+        this.defAttack = villAtt.defAttack;
+        this.defAttackDmg = villAtt.defAttackDmg
+    }
+    // Methods
+    
+}
+
+
+// -----------Original Villain Constructor-----------------
+
+/*
+
     function Villain(villAtt){
       Humanoid.call(this, villAtt);
       this.defAttack = villAtt.defAttack;
       this.defAttackDmg = villAtt.defAttackDmg
     }
-  
+
+*/
+
+
     const peasant = new Villain({
       createdAt: new Date(),
       dimensions: {
