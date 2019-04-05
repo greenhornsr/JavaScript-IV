@@ -150,17 +150,31 @@ class Student extends Person{
         //Add a graduate method to a student.
             // This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
             // If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score. 
-    graduationCheck(student,instructor){
+    graduationCheck(student){
+        // Set the rules
+        console.log(`${student.name} must pass within 5 attempts.`)
+        // Storing student's current grade, then logging it
+        let currGrade = student.grade;
+        console.log(`My current grade is: ${currGrade}`)
+        // for loop activates if average is lower than 70
         for(let i=0; i<5; i++){
-            let myGrade = student.grade;
-            if(student.grade > 70){
-                return `${student.name} has a ${myGrade}!  CONGRATULATIONS ${student.name} has satisfied the minimal requirements to GRADUATE!`
+            // Rolling a new grade to average with current grade    
+            let newGradeRoll = Math.floor((Math.random()* 100) + 1);
+            // establish students' current grade by way of averaging grade roll with current grade.
+            let newGrade = Math.floor((currGrade + newGradeRoll) / 2);
+            // checking if new averaged grade meets requirements to graduate.
+            if(newGrade >= 70){
+                // congratulatory announcements
+                console.log(`***WOOHOO!***   I just scored a ${newGradeRoll} on my Sprint Challenge!`)
+                return `${student.name} has a ${newGrade}!  CONGRATULATIONS ${student.name} has satisfied the minimal requirements to GRADUATE!`
             }
             else{
-                instructor.randGradeAdjust(student);
+                // sorry, try again
+                console.log(`- - - - - - - - - - - I just scored a ${newGradeRoll} on my Sprint Challenge :(  I need to test again!`)
             }
-            return `Sorry ${student.name} did not graduate.  His grade is ${myGrade}.  Better luck next time ${student.name}!`
         }
+        // if after 5 attempts the students grade average isn't satisfactory, fail message
+        return `- - - @Sorry ${student.name} did not graduate.  His grade is ${student.grade}.  Better luck next time ${student.name}!`
     }
 }
 
@@ -178,7 +192,7 @@ const studentRon = new Student({
         'JavaScript'
     ],
     // Stretch Property Grade
-    grade: 10
+    grade: 70
 })
 
 const studentLiz = new Student({
@@ -291,16 +305,16 @@ console.log(pmJulie.debugsCode(studentRon, "CSS"));
 // INSTRUCTOR TESTS
 console.log("--------------THIS IS MY INSTRUCTOR STRETCH LOGS (DID AVERAGE GRADE WHERE ONLY 2 GRADES ARE CONSIDERED)--------------")
 // MILANG STRETCH TEST LOG
-console.log(instructorMilang.randGradeAdjust(studentLiz));
+// console.log(instructorMilang.randGradeAdjust(studentLiz));
 // DAVE STRETCH TEST LOG
-console.log(instructorDave.randGradeAdjust(studentRon));
+// console.log(instructorDave.randGradeAdjust(studentRon));
 
 // PM TESTS
 console.log("--------------THIS IS MY PM STRETCH LOGS (DID AVERAGE GRADE WHERE ONLY 2 GRADES ARE CONSIDERED)--------------")
 // JOSH STRETCH TEST LOG
-console.log(pmJosh.randGradeAdjust(studentLiz));
+// console.log(pmJosh.randGradeAdjust(studentLiz));
 // JULIE STRETCH TEST LOG
-console.log(pmJulie.randGradeAdjust(studentRon));
+// console.log(pmJulie.randGradeAdjust(studentRon));
 
 
 // STRETCH GRADUATION CHECK
