@@ -208,7 +208,7 @@ const studentLiz = new Student({
         'Swift'
     ],
     // Stretch Property Grade
-    grade: 95
+    grade: 70
 })
 
 // Test Console Logs
