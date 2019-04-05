@@ -305,16 +305,16 @@ console.log(pmJulie.debugsCode(studentRon, "CSS"));
 // INSTRUCTOR TESTS
 console.log("--------------THIS IS MY INSTRUCTOR STRETCH LOGS (DID AVERAGE GRADE WHERE ONLY 2 GRADES ARE CONSIDERED)--------------")
 // MILANG STRETCH TEST LOG
-// console.log(instructorMilang.randGradeAdjust(studentLiz));
+console.log(instructorMilang.randGradeAdjust(studentLiz));
 // DAVE STRETCH TEST LOG
-// console.log(instructorDave.randGradeAdjust(studentRon));
+console.log(instructorDave.randGradeAdjust(studentRon));
 
 // PM TESTS
 console.log("--------------THIS IS MY PM STRETCH LOGS (DID AVERAGE GRADE WHERE ONLY 2 GRADES ARE CONSIDERED)--------------")
 // JOSH STRETCH TEST LOG
-// console.log(pmJosh.randGradeAdjust(studentLiz));
+console.log(pmJosh.randGradeAdjust(studentLiz));
 // JULIE STRETCH TEST LOG
-// console.log(pmJulie.randGradeAdjust(studentRon));
+console.log(pmJulie.randGradeAdjust(studentRon));
 
 
 // STRETCH GRADUATION CHECK
