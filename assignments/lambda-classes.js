@@ -64,7 +64,7 @@ class Instructor extends Person{
     }
     // Grade method
         // grade receives a student object and a subject string as arguments and logs out '{student.name} receives a perfect score on {subject}'
-    grade(student, subject = " "){
+    grade(student, subject = "Language Arts"){
         return `${student.name} receives a perfect score on ${subject}!`
     }
     randGradeAdjust(student){
@@ -286,7 +286,7 @@ console.log("--------------THESE ARE MY Project Manager LOGS FOR Josh-----------
 console.log(pmJosh);
 console.log(pmJosh.speak());
 console.log(pmJosh.demo("C#"));
-console.log(pmJosh.grade(tom.name, "Social Studies"));
+console.log(pmJosh.grade(studentLiz, "Social Studies"));
 console.log(pmJosh.standup("WEB19"));
 console.log(pmJosh.debugsCode(studentLiz, "JavaScript"));
 
@@ -295,7 +295,7 @@ console.log("--------------THESE ARE MY Project Manager LOGS FOR Julie----------
 console.log(pmJulie);
 console.log(pmJulie.speak());
 console.log(pmJulie.demo("Ruby"));
-console.log(pmJulie.grade(tom.name, "Binary Code 101"));
+console.log(pmJulie.grade(studentRon, "Binary Code 101"));
 console.log(pmJulie.standup("WEB19"));
 console.log(pmJulie.debugsCode(studentRon, "CSS"));
 // */
